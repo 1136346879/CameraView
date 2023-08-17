@@ -34,10 +34,16 @@ public class CamcorderProfiles {
         sizeToProfileMap.put(new Size(720, 480), CamcorderProfile.QUALITY_480P);
         sizeToProfileMap.put(new Size(1280, 720), CamcorderProfile.QUALITY_720P);
         sizeToProfileMap.put(new Size(1920, 1080), CamcorderProfile.QUALITY_1080P);
-        // if (Build.VERSION.SDK_INT >= 21) {
-        //     sizeToProfileMap.put(new Size(3840, 2160),
-        //             CamcorderProfile.QUALITY_2160P);
-        // }
+        if (Build.VERSION.SDK_INT >= 21) {
+            if (android.os.Build.MODEL.equals("AQM-AL00")){
+                sizeToProfileMap.put(new Size(2400, 1080),
+                        CamcorderProfile.QUALITY_1080P);
+            } else {
+                sizeToProfileMap.put(new Size(3840, 2160),
+                        CamcorderProfile.QUALITY_2160P);
+            }
+            System.out.println("系统型号："+android.os.Build.MODEL);
+        }
     }
 
 
